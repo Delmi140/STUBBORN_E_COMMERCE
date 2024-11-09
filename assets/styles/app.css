@@ -1,3 +1,18 @@
 body {
     background-color: skyblue;
 }
+
+
+
+
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+.producthome{
+    display: flex;
+    justify-content: space-around;
+}

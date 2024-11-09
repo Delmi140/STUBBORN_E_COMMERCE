@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="http://127.0.0.1:8000/">
+      <img src="" alt="" width="30" height="24" class="d-inline-block align-text-top">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/register">S'inscrire</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/login">Se connecter</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <h1>Register</h1>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.name) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.delivery_address) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de passe'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn btn-lg btn-secondary">S'inscrire</button>
+    {{ form_end(registrationForm) }}
+
+
+
+<footer>
+    <div>
+        <p>Nom de la société : Stubborn</p>
+        <p>Adresse : Piccadilly Circus, London W1J 0DA, Royaume-Uni</p>
+        <p>Adresse de contact : stubborn@blabla.com</p>
+        <p>Slogan: Don't compromise on your look</p>
+    </div>
+</footer>
+{% endblock %}
