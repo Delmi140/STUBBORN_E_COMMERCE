@@ -23,9 +23,7 @@ class SweatShirts
     #[ORM\Column(length: 255)]
     private ?string $size = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $price = null;
-
+    
     #[ORM\Column(length: 255 , type: 'string')]
     private ?string $attachment = null;
 
@@ -41,6 +39,9 @@ class SweatShirts
     #[ORM\ManyToOne(inversedBy: 'sweatShirts')]
     #[ORM\JoinColumn(nullable: false)]
     private ?CatagoryShop $category = null;
+
+    #[ORM\Column]
+    private ?float $price = null;
 
     public function getId(): ?int
     {
@@ -71,17 +72,7 @@ class SweatShirts
         return $this;
     }
 
-    public function getPrice(): ?string
-    {
-        return $this->price;
-    }
-
-    public function setPrice(string $price): static
-    {
-        $this->price = $price;
-
-        return $this;
-    }
+    
 
     public function getAttachment(): ?string
     {
@@ -104,10 +95,11 @@ class SweatShirts
     }
 
     
-       public function setAttachmentFile(?File $attachmentFile): void
+       public function setAttachmentFile(?File $attachmentFile = null): void
    {
         $this->attachmentFile = $attachmentFile;
         
+        if (null !== $attachmentFile){}
         
     }
 
@@ -134,6 +126,18 @@ class SweatShirts
     public function setCategory(?CatagoryShop $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): static
+    {
+        $this->price = $price;
 
         return $this;
     }

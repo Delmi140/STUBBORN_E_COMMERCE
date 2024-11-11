@@ -14,5 +14,11 @@ footer {
 
 .producthome{
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    
+    margin: 50px;
+}
+
+.card{
+    margin: 50px;
 }

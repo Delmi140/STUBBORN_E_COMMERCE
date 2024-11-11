@@ -24,7 +24,7 @@
           <a class="nav-link" href="http://127.0.0.1:8000/products">Boutique</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Panier</a>
+          <a class="nav-link" href="http://127.0.0.1:8000/cart">Panier</a>
         </li>
       </ul>
     </div>
@@ -40,19 +40,20 @@
     <div>
          <h2>Produits</h2>
     </div>
-    <div class="producthome">
+    <div class="row">
 
     {% for product in products %}
 
-    <div class="card" style="width: 18rem;">
+    <div class="card col-md-6 col-lg-4" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Nom: {{ product.name }}</h5>
-            <p class="card-text">Tailles: {{ product.size }}</p>
-            <p class="card-text"><strong> Prix: {{ product.price }} € </strong></p>
-         <a href="#" class="btn btn-primary">Go somewhere</a>
+            <p class="card-text"><strong> Prix: {{(product.price / 100)|number_format(2,) }} € </strong></p>
+            <a href="#" class="btn btn-primary">voir</a>
+            <a href="{{ path('cart_add', {id: product.id}) }}" class="btn btn-primary">Ajouter au panier</a>
         </div>
     </div>
+    
 
     {% endfor %}
 

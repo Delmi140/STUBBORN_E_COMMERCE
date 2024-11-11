@@ -28,7 +28,7 @@ class SweatShirtsCrudController extends AbstractCrudController
             TextField::new('name'),
             SlugField::new('slug')->setTargetFieldName('name'),
             TextField::new('size'),
-            TextField::new('price'),
+            MoneyField::new('price')->setCurrency('EUR'),
             TextField::new('attachmentFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
             ImageField::new('attachment')->setBasePath('/uploads/attachments')->onlyOnIndex(),
             AssociationField::new('category'),
